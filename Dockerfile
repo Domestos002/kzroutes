@@ -23,3 +23,4 @@ RUN \
 WORKDIR /build
 ADD start.sh start.sh
 EXPOSE 5000
+--algorithm ch
