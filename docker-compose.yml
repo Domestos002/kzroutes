@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   osrm-data:
@@ -7,17 +7,10 @@ services:
       - /data
   osrm:
     image: irony/osrm5
-    volumes:
-      - /data
+    volumes_from:
+      - osrm-data
     environment:
       - VIRTUAL_HOST=kzroutes.pstuffapp.com
       - LETSENCRYPT_HOST=kzroutes.pstuffapp.com
       - LETSENCRYPT_EMAIL=absorber000@gmail.com
     command: ./start.sh kazakstan https://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf
-    networks:
-      - default
-
-networks:
-  default:
-    external:
-      name: nginxproxy_proxy
