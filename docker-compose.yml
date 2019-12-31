@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   osrm-data:
@@ -14,3 +14,10 @@ services:
       - LETSENCRYPT_HOST=kzroutes.pstuffapp.com
       - LETSENCRYPT_EMAIL=absorber000@gmail.com
     command: ./start.sh kazakstan https://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: nginxproxy_proxy
