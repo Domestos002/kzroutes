@@ -7,8 +7,8 @@ services:
       - /data
   osrm:
     image: irony/osrm5
-    volumes_from:
-      - osrm-data
+    volumes:
+      - /data
     environment:
       - VIRTUAL_HOST=kzroutes.pstuffapp.com
       - LETSENCRYPT_HOST=kzroutes.pstuffapp.com
